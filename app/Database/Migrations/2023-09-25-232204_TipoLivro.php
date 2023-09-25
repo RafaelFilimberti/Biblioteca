@@ -4,16 +4,14 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Exemplar extends Migration
-
+class TipoLivro extends Migration
 {
     public function up()
     {
         $this->forge->addField([
 
             'id' => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
-            'id_livro' => ['type' => 'int', 'constraint' => 11, 'null' => false],
-            'quantidade' => ['type' => 'int', 'constraint' => 11],
+            'nome' => ['type' => 'varchar', 'constraint' => 100],
             'created_at'        => ['type' => 'datetime', 'null' => true],
             'updated_at'        => ['type' => 'datetime', 'null' => true],
             'deleted_at'        => ['type' => 'datetime', 'null' => true],
@@ -21,8 +19,7 @@ class Exemplar extends Migration
 
 
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('id_livro', 'livros', 'id');
-        $this->forge->createTable('exemplar');
+        $this->forge->createTable('tipo_livro');
     }
 
     public function down()

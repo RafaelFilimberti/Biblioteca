@@ -10,6 +10,7 @@ class Livros extends Migration
     {
         $this->forge->addField([
             'id' => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
+            'id_tipo_livro' => ['type' => 'int', 'constraint' => 11, 'null' => true],
             'nome' => ['type' => 'varchar', 'constraint' => 255],
             'autor' => ['type' => 'varchar', 'constraint' => 255],
             'num_paginas' => ['type' => 'INT', 'constraint' => 5],
@@ -26,7 +27,7 @@ class Livros extends Migration
         ]);
 
         $this->forge->addPrimaryKey('id');
-
+        $this->forge->addForeignKey('id_tipo_livro', 'tipo_livro', 'id');
         $this->forge->createTable('livros', true);
     }
 
