@@ -12,9 +12,9 @@ class TipoLivro extends Migration
 
             'id' => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
             'nome' => ['type' => 'varchar', 'constraint' => 100],
-            'created_at'        => ['type' => 'datetime', 'null' => true],
-            'updated_at'        => ['type' => 'datetime', 'null' => true],
-            'deleted_at'        => ['type' => 'datetime', 'null' => true],
+            'created_at' => ['type' => 'datetime', 'null' => true],
+            'updated_at' => ['type' => 'datetime', 'null' => true],
+            'deleted_at' => ['type' => 'datetime', 'null' => true],
         ]);
 
 
