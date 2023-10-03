@@ -12,7 +12,7 @@
     <tbody>
         <?php foreach ($livros as $livro) : ?>
             <tr>
-                <td><?= $livro['titulo']; ?></td>
+                <td><?= $livro['nome']; ?></td>
                 <td><?= $livro['autor']; ?></td>
                 <td><?= $livro['sinopse']; ?></td>
                 <td><?= $livro['categoria']; ?></td>
@@ -22,7 +22,8 @@
 
                     <input type="submit" value="Editar">
 
-                    <input type="submit" value="Deletar">
+
+                    <a href="<?= base_url('livros/deletar/'.$livro['id']) ?>">Deletar</a>
 
 
                 </td>
