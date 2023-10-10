@@ -20,7 +20,7 @@
                 <td>
                     <!-- Adicione botões de editar e deletar aqui -->
 
-                    <input type="submit" value="Editar">
+                    <!-- <input type="submit" value="Editar"> -->
 
 
                     <a href="<?= base_url('livros/deletar/'.$livro['id']) ?>">Deletar</a>
