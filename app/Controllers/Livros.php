@@ -43,12 +43,12 @@ class Livros extends BaseController
         }
     }
 
-    public function editar($id = null)
+    public function editar($id)
     {
-
 
         if ($this->request->getMethod() === 'post') {
             if ($this->_model->update($id, $this->request->getPost())) {
+
                 // Redireciona para a página de sucesso
                 session()->setFlashdata('message', 'Livro atualizado com sucesso');
                 return redirect()->to('/livros');
@@ -57,12 +57,11 @@ class Livros extends BaseController
                 return redirect()->to('/livros/editar');
             }
         } else {
-            $data['livro'] = $this->_model->find(1);
+            $data['livro'] = $this->_model->find($id);
             return view('editar_livro', $data);
         }
-      
     }
-  
+
 
     public function deletar($id = null)
     {
