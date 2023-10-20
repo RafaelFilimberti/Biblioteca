@@ -3,44 +3,47 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\LivroModel;
+use App\Models\LivrosModel;
+use App\Services\LivrosService;
 
-class Livros extends BaseController
+class LivrosController extends BaseController
 {
 
     protected $_model;
+    protected $_livrosService;
 
     public function __construct()
     {
-        $this->_model = new LivroModel();
+        $this->_model = new LivrosModel();
+        $this->_livrosService = new LivrosService();
     }
 
 
     public function index()
     {
 
-        $data['livros'] = $this->_model->findAll();
+        $data['livros'] = $this->_livrosService->getAllLivros();
 
         return view('listar_livros', $data);
     }
 
-
     public function adicionar()
     {
-        return view('adicionar_livro');
-    }
+        if($this->request->getPost()){
 
-    public function add()
-    {
+            if ($this->_livrosService->createLivros($this->request->getPost())) {
+                // Redireciona para a página de sucesso
+                session()->setFlashdata('message', 'Livro adicionado com sucesso');
+                return redirect()->to('/livros');
+            } else {
+                session()->setFlashdata('message', 'erro ao tentar adicionar o livro, verifique os campos');
+                return redirect()->to('/livros/adicionar');
+            }
 
-        if ($this->_model->insert($this->request->getPost())) {
-            // Redireciona para a página de sucesso
-            session()->setFlashdata('message', 'Livro adicionado com sucesso');
-            return redirect()->to('/livros');
-        } else {
-            session()->setFlashdata('message', 'erro ao tentar adicionar o livro, verifique os campos');
-            return redirect()->to('/livros/adicionar');
+        }else{
+            return view('adicionar_livro');
         }
+     
     }
 
     public function editar($id)
