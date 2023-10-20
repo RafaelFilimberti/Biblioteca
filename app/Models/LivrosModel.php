@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
+use App\Entities\Livros;
 use CodeIgniter\Model;
 
-class LivroModel extends Model
+class LivrosModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'livros';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType       = 'Entity';
+    protected $returnType       = Livros::class;
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    =  ['nome', 'autor', 'sinopse', 'sinopse' ,'categoria', 'ano'];
+    protected $allowedFields    = ['nome', 'autor', 'sinopse', 'sinopse' ,'categoria', 'ano'];
 
     // Dates
     protected $useTimestamps = false;
