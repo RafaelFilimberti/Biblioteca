@@ -46,28 +46,36 @@ class LivrosController extends BaseController
      
     }
 
-    public function editar($id = null)
+    public function editar($id)
     {
-
-
         if ($this->request->getMethod() === 'post') {
-            if ($this->_model->update($id, $this->request->getPost())) {
+            // Valida os dados do formulário, você pode adicionar regras de validação aqui
+            $validationRules = [
+                // Adicione as regras de validação para os campos do formulário
+            ];
+    
+            if ($this->validate($validationRules)) {
+                // Os dados do formulário são válidos, atualize o livro
+                $livroData = $this->request->getPost();
+                if ($this->_livrosService->updateLivros($id, $livroData)) {
+
+                    debug($id);
+
                 // Redireciona para a página de sucesso
                 session()->setFlashdata('message', 'Livro atualizado com sucesso');
                 return redirect()->to('/livros');
             } else {
                 session()->setFlashdata('message', 'erro ao tentar atualizar o livro, verifique os campos');
-                return redirect()->to('/livros/editar');
+                return redirect()->to('/livros/editar/$id');
             }
         } else {
-            $data['livro'] = $this->_model->find(1);
+            $data['livros'] = $this->_model->find($id);
             return view('editar_livro', $data);
         }
-      
     }
-  
 
-    public function deletar($id = null)
+
+  /*   public function deletar($id = null)
     {
         if ($this->_model->delete($id)) {
             // Redireciona para a página de sucesso
@@ -77,5 +85,6 @@ class LivrosController extends BaseController
             session()->setFlashdata('message', 'erro ao excluir o livro');
             return redirect()->to('/livros/editar');
         }
+    } */
     }
 }

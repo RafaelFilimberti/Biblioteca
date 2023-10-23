@@ -32,6 +32,19 @@ class LivrosService{
 
     }
 
+    public function updateLivros($dados){
+
+        $livros = new Livros($dados);
+    
+        if($this->livrosModel->update($livros)){
+            session()->setFlashdata('success', 'Login criado com sucesso');
+            return redirect()->to('/');
+        }else{
+            return redirect()->back()->withInput()->with('errors', $this->livrosModel->errors()); 
+        }
+
+    }
+
 
     
 

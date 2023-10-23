@@ -31,6 +31,7 @@ if(session()->has('message')){
 
                     <!-- <input type="submit" value="Editar"> -->
 
+                    <a href="<?= base_url('livros/editar/'.$livro->id) ?>">Editar</a>
 
                     <a href="<?= base_url('livros/deletar/'.$livro->id) ?>">Deletar</a>
 
