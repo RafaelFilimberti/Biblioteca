@@ -47,32 +47,34 @@ class LivrosController extends BaseController
     }
 
     public function editar($id)
-    {
-        if ($this->request->getMethod() === 'post') {
-            // Valida os dados do formulário, você pode adicionar regras de validação aqui
-            $validationRules = [
-                // Adicione as regras de validação para os campos do formulário
-            ];
-    
-            if ($this->validate($validationRules)) {
-                // Os dados do formulário são válidos, atualize o livro
-                $livroData = $this->request->getPost();
-                if ($this->_livrosService->updateLivros($id, $livroData)) {
+{
+    if ($this->request->getMethod() === 'post') {
+        // Defina as regras de validação para os campos do formulário
+        $validationRules = [
+            // Adicione as regras de validação para os campos do formulário aqui
+        ];
 
-                    debug($id);
-
+        if ($this->validate($validationRules)) {
+            $livroData = $this->request->getPost();
+            if ($this->_livrosService->updateLivros($id, $livroData)) {
                 // Redireciona para a página de sucesso
                 session()->setFlashdata('message', 'Livro atualizado com sucesso');
                 return redirect()->to('/livros');
             } else {
-                session()->setFlashdata('message', 'erro ao tentar atualizar o livro, verifique os campos');
-                return redirect()->to('/livros/editar/$id');
+                // Adicione uma mensagem de erro mais detalhada, se necessário
+                session()->setFlashdata('message', 'Erro ao tentar atualizar o livro, verifique os campos');
+                return redirect()->to("/livros/editar/$id");
             }
         } else {
-            $data['livros'] = $this->_model->find($id);
-            return view('editar_livro', $data);
+            // Redireciona de volta à página de edição para corrigir os erros de validação
+            return redirect()->to("/livros/editar/$id");
         }
+    } else {
+        $data['livro'] = $this->_model->find($id);
+        return view('editar_livro', $data);
     }
+}
+
 
 
   /*   public function deletar($id = null)
@@ -87,4 +89,4 @@ class LivrosController extends BaseController
         }
     } */
     }
-}
+
