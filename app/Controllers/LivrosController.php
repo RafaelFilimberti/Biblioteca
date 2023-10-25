@@ -51,10 +51,19 @@ class LivrosController extends BaseController
     if ($this->request->getMethod() === 'post') {
         // Defina as regras de validação para os campos do formulário
         $validationRules = [
-            // Adicione as regras de validação para os campos do formulário aqui
+            'nome' => 'required|min_length[3]',
+            'autor' => 'required|min_length[3]',
+            'num_paginas' => 'required|numeric', 
+            'editora' => 'required|min_length[3]', 
+            'edicao' => 'required|min_length[1]', 
+            'sinopse'  => 'required|max_length[50]',
+            'categoria' => 'required|min_length[3]', 
+            'ano' => 'required|max_length[4]', 
+            
         ];
-
-        if ($this->validate($validationRules)) {
+      
+        if ($this->validate($validationRules)) { 
+            
             $livroData = $this->request->getPost();
             if ($this->_livrosService->updateLivros($id, $livroData)) {
                 // Redireciona para a página de sucesso
@@ -62,11 +71,13 @@ class LivrosController extends BaseController
                 return redirect()->to('/livros');
             } else {
                 // Adicione uma mensagem de erro mais detalhada, se necessário
-                session()->setFlashdata('message', 'Erro ao tentar atualizar o livro, verifique os campos');
+                session()->setFlashdata('message', 'Erro ao tentar atualizar o livro');
                 return redirect()->to("/livros/editar/$id");
             }
         } else {
+            debug($this->validator->getErrors());
             // Redireciona de volta à página de edição para corrigir os erros de validação
+            session()->setFlashdata('message', 'Erro ao tentar atualizar o livro, verifique os campos');
             return redirect()->to("/livros/editar/$id");
         }
     } else {
@@ -76,8 +87,7 @@ class LivrosController extends BaseController
 }
 
 
-
-  /*   public function deletar($id = null)
+    public function deletar($id = null)
     {
         if ($this->_model->delete($id)) {
             // Redireciona para a página de sucesso
@@ -87,6 +97,6 @@ class LivrosController extends BaseController
             session()->setFlashdata('message', 'erro ao excluir o livro');
             return redirect()->to('/livros/editar');
         }
-    } */
+    }
     }
 

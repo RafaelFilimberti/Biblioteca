@@ -14,7 +14,7 @@ class LivrosModel extends Model
     protected $returnType       = Livros::class;
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nome', 'autor', 'sinopse', 'sinopse' ,'categoria', 'ano'];
+    protected $allowedFields    = ['nome', 'autor','num_paginas', 'editora', 'edicao', 'sinopse' ,'categoria', 'ano', 'imagem']; //campos que altera no bvanco 
 
     // Dates
     protected $useTimestamps = false;
