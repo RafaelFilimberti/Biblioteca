@@ -32,11 +32,11 @@ class LivrosService{
 
     }
 
-    public function updateLivros($dados){
+    public function updateLivros($id, $dados){
 
         $livros = new Livros($dados);
     
-        if($this->livrosModel->update($livros)){
+        if($this->livrosModel->update($id, $livros)){
             session()->setFlashdata('success', 'Login criado com sucesso');
             return redirect()->to('/');
         }else{

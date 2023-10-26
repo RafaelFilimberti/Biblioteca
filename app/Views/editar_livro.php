@@ -1,5 +1,10 @@
+<?php
+if(session()->has('message')){
+    echo session()->getFlashdata('message');
+}
 
-
+?>
+<?= validation_list_errors() ?>
 <form method="post" action="<?php route_to('livros/editar/' . $livro->id); ?>">
         <div class="mb-3">
             <input type="hidden" name="id" value="<?php echo $livro->id; ?>">
@@ -32,6 +37,10 @@
           <option value="1">Online</option>
           <option value="2">Físico</option>
         </select>
-    
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+        <label for="arquivo">Selecione uma imagem:</label>
+        <input type="file" name="arquivo" id="arquivo">
+        <input  value="<?php echo $livro->imagem; ?>" required>
+    </form>
         <input type="submit" value="Editar">
     </form>
