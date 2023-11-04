@@ -6,7 +6,7 @@ use App\Entities\User;
 use App\Models\UserModel;
 use CodeIgniter\Config\Factories;
 
-class UserService{
+class AuthService{
 
     protected $userModel;
 
@@ -19,7 +19,7 @@ class UserService{
 
         $user = $this->userModel->getUser($email);
        
-        if($user && password_verify($senha, $user->password)){
+        if($user && password_verify($senha, $user->senha)){
            
             $variavalDeSessao = [
                 'email' => $user->email,
@@ -37,12 +37,12 @@ class UserService{
         }
     }
 
-    public function createUser($email, $password){
+    public function createUser($email, $senha){
 
         $user = new User();
        
         $user->email = $email;
-        $user->password = $password;
+        $user->senha = $senha;
     
         if($this->userModel->save($user)){
             session()->setFlashdata('success', 'Login criado com sucesso');

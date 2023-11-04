@@ -59,6 +59,7 @@ class LivrosController extends BaseController
             'sinopse'  => 'required|max_length[50]',
             'categoria' => 'required|min_length[3]', 
             'ano' => 'required|max_length[4]', 
+            'imagem' => 'required|max_length[40]',
             
         ];
       
