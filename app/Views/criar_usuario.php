@@ -1,7 +1,5 @@
-<!DOCTYPE html> 
-
+<!DOCTYPE html>
 <html>
-
 <head>
   <title>Usuários</title>
   <meta charset="UTF-8">
@@ -12,32 +10,30 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script> 
   <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css") ?>"> 
 </head>
-
-
-
-
-
+<head>
+    <title>Criar Usuário</title>
+</head>
 <body>
-    <h1>Dados do Usuário</h1>
+    <h2>Criar Usuário</h2>
 
-    <table>
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>CPF</th>
-        </tr>
-    </thead>
-    <header>
-        <?php foreach ($usuario as $u) : ?>
-            <tr>
-                <td><?= $u->nome; ?></td>
-                <td><?= $u->email; ?></td>
-                <td><?= $u->cpf; ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </header>
+    <?php if(session()->get('success')): ?>
+        <div class="alert alert-success"><?= session()->get('success') ?></div>
+    <?php endif; ?>
+
+    <?php if(session()->get('error')): ?>
+        <div class="alert alert-danger"><?= session()->get('error') ?></div>
+    <?php endif; ?>
+
+    <?php echo form_open('usuario/criarUsuario'); ?>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" required>
+
+    <label for="senha">Senha:</label>
+    <input type="password" name="senha" required>
+
+    <button type="submit">Criar Usuário</button>
+
+    <?php echo form_close(); ?>
 </body>
-</html>
-
 </html>

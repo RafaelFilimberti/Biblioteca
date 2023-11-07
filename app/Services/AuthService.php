@@ -15,6 +15,7 @@ class AuthService{
         $this->userModel = Factories::models(UserModel::class);
     }
 
+    
     public function authenticate($email, $senha){
 
         $user = $this->userModel->getUser($email);

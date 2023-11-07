@@ -12,7 +12,7 @@ class UsuarioModel extends Model
     protected $returnType = User::class;
 
     protected $validationRules = [
-        'email' => 'required|valid_email|is_unique[users.emaissl]',
+        'email' => 'required|valid_email|is_unique[users.emaissl]',  //regras de validações, que sao avaliadas do que está na view 
         'senha' => 'required|min_length[6]',
     ];
 
