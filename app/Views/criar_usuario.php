@@ -26,8 +26,20 @@
 
     <?php echo form_open('usuario/criarUsuario'); ?>
 
+    <label for="nome">Nome:</label>
+    <input type="nome" name="nome" required>
+    
     <label for="email">Email:</label>
     <input type="email" name="email" required>
+
+    <label for="cpf">CPF:</label>
+    <input type="cpf" name="cpf" required>
+
+    <label for="telefone">Telefone:</label>
+    <input type="telefone" name="telefone" required>
+
+    <label for="data_nascimento">Data De Nascimento:</label>
+    <input type="data_nascimento" name="data_nascimento" required>
 
     <label for="senha">Senha:</label>
     <input type="password" name="senha" required>
