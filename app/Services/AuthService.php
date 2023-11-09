@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Entities\User;
 use App\Models\UserModel;
+use App\Models\UsuarioModel;
 use CodeIgniter\Config\Factories;
 
 class AuthService{
@@ -13,6 +14,7 @@ class AuthService{
     public function __construct()
     {
         $this->userModel = Factories::models(UserModel::class);
+        $this->userModel = new UsuarioModel();
     }
 
     
@@ -53,8 +55,16 @@ class AuthService{
         }
 
     }
+    public function criarUsuario($dados)
+    {
+        // Valide os dados e crie o usuário no banco de dados
+        if ($this->userModel->insert($dados)) {
+            return true;
+        }
 
+        return false;
+    }
+}
 
     
 
-}
