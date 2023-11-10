@@ -24,7 +24,7 @@
         <div class="alert alert-danger"><?= session()->get('error') ?></div>
     <?php endif; ?>
 
-    <?php echo form_open('usuario/criarUsuario'); ?>
+    <?php echo form_open('registrar'); ?>
 
     <label for="nome">Nome:</label>
     <input type="nome" name="nome" required>
