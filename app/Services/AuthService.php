@@ -23,7 +23,7 @@ class AuthService{
     public function authenticate($email, $senha){
 
         $user = $this->userModel->getUser($email);
-       
+      /*   debug(password_verify($senha, $user->senha)); */
         if($user && password_verify($senha, $user->senha)){
            
             $variavalDeSessao = [

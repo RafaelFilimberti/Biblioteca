@@ -21,7 +21,7 @@ class LivrosController extends BaseController
 
     public function index()
     {
-
+/* debug('este gsfvuhasdgfvuiaruilicpkjgu'); */
         $data['livros'] = $this->_livrosService->getAllLivros();
 
         return view('listar_livros', $data);
@@ -62,21 +62,22 @@ class LivrosController extends BaseController
             'imagem' => 'required|max_length[40]',
             
         ];
-      
+        
+        
         if ($this->validate($validationRules)) { 
             
             $livroData = $this->request->getPost();
             if ($this->_livrosService->updateLivros($id, $livroData)) {
-                // Redireciona para a página de sucesso
+                
                 session()->setFlashdata('message', 'Livro atualizado com sucesso');
                 return redirect()->to('/livros');
             } else {
-                // Adicione uma mensagem de erro mais detalhada, se necessário
+            
                 session()->setFlashdata('message', 'Erro ao tentar atualizar o livro');
                 return redirect()->to("/livros/editar/$id");
             }
         } else {
-            debug($this->validator->getErrors());
+             debug($this->validator->getErrors()); 
             // Redireciona de volta à página de edição para corrigir os erros de validação
             session()->setFlashdata('message', 'Erro ao tentar atualizar o livro, verifique os campos');
             return redirect()->to("/livros/editar/$id");
@@ -91,7 +92,7 @@ class LivrosController extends BaseController
     public function deletar($id = null)
     {
         if ($this->_model->delete($id)) {
-            // Redireciona para a página de sucesso
+            
             session()->setFlashdata('message', 'Livro excluído com sucesso');
             return redirect()->to('/livros');
         } else {

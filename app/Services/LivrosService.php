@@ -24,7 +24,7 @@ class LivrosService{
         $livros = new Livros($dados);
     
         if($this->livrosModel->insert($livros)){
-            session()->setFlashdata('success', 'Login criado com sucesso');
+            session()->setFlashdata('success', 'Livro criado com sucesso');
             return redirect()->to('/');
         }else{
             return redirect()->back()->withInput()->with('errors', $this->livrosModel->errors()); 
@@ -37,7 +37,7 @@ class LivrosService{
         $livros = new Livros($dados);
     
         if($this->livrosModel->update($id, $livros)){
-            session()->setFlashdata('success', 'Login criado com sucesso');
+            session()->setFlashdata('success', 'Livro atualizado com sucesso');
             return redirect()->to('/');
         }else{
             return redirect()->back()->withInput()->with('errors', $this->livrosModel->errors()); 

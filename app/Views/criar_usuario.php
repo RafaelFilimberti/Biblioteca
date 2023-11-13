@@ -38,13 +38,14 @@
     <label for="telefone">Telefone:</label>
     <input type="telefone" name="telefone" required>
 
-    <label for="data_nascimento">Data De Nascimento:</label>
-    <input type="data_nascimento" name="data_nascimento" required>
+    <label  for="data_nascimento">Data De Nascimento:</label>
+  <input  type="date" id="ano" name="ano" required>
 
     <label for="senha">Senha:</label>
     <input type="password" name="senha" required>
 
     <button type="submit">Criar Usuário</button>
+    <button type="submit">Fazer Login</button>
 
     <?php echo form_close(); ?>
 </body>

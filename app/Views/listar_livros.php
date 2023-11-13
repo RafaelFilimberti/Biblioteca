@@ -9,7 +9,7 @@ if(session()->has('message')){
 <html>
 
 <head>
-  <title>Lista de Livros</title>
+  <title> Livros</title>
   <meta charset="UTF-8">
   <meta name="keywords" content="HTML, CSS, JavaScript">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,15 +22,41 @@ if(session()->has('message')){
 <body>
 <h1>Lista de Livros</h1>
 <table>
-    <thead>
-        <tr>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Sinopse</th>
-            <th>Categoria</th>
-            <th>Ano</th>
-        </tr>
-    </thead>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Autor</th>
+                <th>Sinopse</th>
+                <th>Categoria</th>
+                <th>Ano</th>
+                <th>Ações</th> <!-- Adicionei uma coluna para ações, como a reserva do livro -->
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($livros as $livro): ?>
+                <tr>
+                    <td><?= $livro->nome; ?></td>
+                    <td><?= $livro->autor; ?></td>
+                    <td><?= $livro->sinopse; ?></td>
+                    <td><?= $livro->categoria; ?></td>
+                    <td><?= $livro->ano; ?></td>
+                    <td>
+                    <?php if ($livro->disponivel): ?>
+        <a href="<?= base_url('/reservas/reservarLivro/' . $livro->id); ?>" class="btn btn-success">Reservar</a>
+    <?php else: ?>
+        <span class="badge badge-danger">Indisponível</span>
+    <?php endif; ?>
+    
+    <!-- Adicione o botão de redirecionamento para a página de reserva -->
+    <a href="<?= base_url('/reservas/view/' . $livro->id); ?>" class="btn btn-info">Ver Detalhes</a>
+</td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
     <tbody>
         <?php 
         if($livros):
@@ -42,7 +68,7 @@ if(session()->has('message')){
                 <td><?= $livro->categoria; ?></td>
                 <td><?= $livro->ano; ?></td>
                 <td>
-                    <!-- Adicione botões de editar e deletar aqui -->
+                   
 
                     <a href="<?= base_url('livros/editar/'.$livro->id) ?>">Editar</a>
 
