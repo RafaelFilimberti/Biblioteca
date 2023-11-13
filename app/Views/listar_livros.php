@@ -50,7 +50,7 @@ if(session()->has('message')){
     <?php endif; ?>
     
     <!-- Adicione o botão de redirecionamento para a página de reserva -->
-    <a href="<?= base_url('/reservas/view/' . $livro->id); ?>" class="btn btn-info">Ver Detalhes</a>
+    <a href="<?= base_url('/reservas/view/' . $livro->id); ?>" class="btn btn-info">Reservar</a>
 </td>
                 </tr>
             <?php endforeach; ?>

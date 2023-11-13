@@ -43,8 +43,9 @@ public function ReservarLivro($livroId)
         }
     } else {
         // Lógica para lidar com o caso em que o livro não está disponível
-        return redirect()->back()->with('error', 'Livro não disponível para reserva.');
-    }
+        return redirect()->back()->with('error', 'Livro não disponível para reserva.')
+} ;
+
     public function check_disponibilidade()
 {
     $livroId = $this->request->getPost('id_livro');
@@ -57,5 +58,4 @@ public function ReservarLivro($livroId)
     return $this->response->setJSON($response);
 }
 
-}
 }

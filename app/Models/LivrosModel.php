@@ -41,8 +41,8 @@ class LivrosModel extends Model
     protected $afterDelete    = [];
 }
 
-
+/* 
 public function isLivroDisponivel($livroId){
     $livro = $this->find($livroId);
     return ($livro && $livro['disponivel'] == 1);
-}
+} */
