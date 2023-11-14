@@ -1,0 +1,86 @@
+/* Estilo para o corpo da página */
+body {
+    background-color: #FFC0CB; /* Rosa mais claro */
+    color: #333; /* Cor do texto principal */
+    font-family: 'Arial', sans-serif; /* Fonte principal */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para o contêiner da tabela */
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Estilo para a tabela de lista de livros */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white; /* Fundo branco para a tabela */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Estilo para o cabeçalho da tabela */
+thead {
+    background-color: #FF69B4; /* Rosa mais escuro para o cabeçalho */
+    color: white;
+}
+
+/* Estilo para linhas alternadas */
+tbody tr:nth-child(even) {
+    background-color: #FFEBEE; /* Rosa mais claro para linhas pares */
+}
+
+/* Estilo para células da tabela */
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Estilo para os botões */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #FF69B4; /* Rosa mais escuro para os botões */
+    color: white;
+    border: 1px solid #FF69B4; /* Rosa mais escuro */
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* Estilo para o botão "Indisponível" */
+/* .badge-danger { */
+    background-color: #FF0000; /* Vermelho */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+/* } */
+
+/* Estilo para links de ação */
+a {
+    margin-right: 10px;
+    color: #FF69B4; /* Rosa mais escuro para links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para a tabela responsiva */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Estilo para a imagem do livro (ajuste conforme necessário) */
+td img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+}
