@@ -25,10 +25,59 @@ if (session()->has('message')) {
 <div class="container">
 <form action="<?= route_to('livros/add') ?>" method="POST" enctype='multipart/form-data'> <!-- o action está pegando todo o formulario e enviando via POST para o insert_livro -->
 
+<<<<<<< Updated upstream
 <div class="mb-3">
   <label class="form-label" for="nome">Nome:</label>
   <input class="form-control" type="text" id="nome" name="nome" required>
 </div>
+=======
+  <form action="<?= route_to('livros/add') ?>" method="POST" enctype='multipart/form-data'> <!-- o action está pegando todo o formulario e enviando via POST para o insert_livro -->
+
+
+    <a for="nome">Nome:</a>
+    <input type="text" id="nome" name="nome" required>
+
+
+    <a for="autor">Autor:</a>
+    <input type="text" id="autor" name="autor" required>
+
+
+    <a for="num_paginas">Número de Páginas:</a>
+    <input type="text" id="num_paginas" name="num_paginas" required>
+
+
+    <a for="editora">Editora:</a>
+    <input type="text" id="editora" name="editora" required>
+
+
+    <a for="edicao">Edição:</a>
+    <input type="text" id="edicao" name="edicao" required>
+
+
+    <a for="sinopse">Sinopse:</a>
+    <textarea type="text" id="sinopse" name="sinopse" required>  </textarea>
+
+
+    <a for="categoria">Categoria:</a>
+    <input type="text" id="categoria" name="categoria" required>
+
+    <a for="ano">Ano:</a>
+    <input type="date" id="ano" name="ano" required>
+
+
+    <a for="id_tipo_do_livro" required>Tipo da mídia:</a>
+    <select  name="id_tipo_do_livro" id="id_tipo_do_livro">
+      <option value="1">Online</option>
+      <option value="2">Físico</option>
+    </select>
+
+
+    <a  for="imagem">Carregar imagem:</a>
+    <input  type="file" id="imagem" name="imagem">
+
+    <input class="btn btn-success" type="submit" value="Cadastrar">
+  </form>
+>>>>>>> Stashed changes
 
 
 <div class="mb-3">

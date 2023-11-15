@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\LivrosModel;
 
 if(!function_exists('debug')){
     function debug($param){
@@ -33,6 +34,7 @@ if(!function_exists('timestamp2br')){
     }
 }
 
+<<<<<<< Updated upstream
 /**
  * Criar 4 funcoes dentro do helper
  * 
@@ -50,3 +52,13 @@ if(!function_exists('timestamp2br')){
  * 
  * 
  */
+=======
+if(!function_exists('buscarLivro()')){
+    function buscarLivro(){
+        $dados = session()->get('variavelDeSessao');
+        $id = $dados['id'];
+        $_model = new LivrosModel();
+        return $_model->where('livro_id', $id)->findAll();
+    }
+}
+>>>>>>> Stashed changes
