@@ -8,6 +8,11 @@ body {
     padding: 0;
 }
 
+/* h1 {
+    color: #fff;
+    text-align: center;
+  } */
+
 form {
     width: 60%;
     margin: 20px auto;

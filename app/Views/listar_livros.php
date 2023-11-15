@@ -55,9 +55,9 @@ if (session()->has('message')) {
                                 <!-- Adicione o botão de redirecionamento para a página de reserva -->
                                 <a href="<?= base_url('/reservas/view/' . $livro->id); ?>" class="btn btn-info">Reservar</a>
 
-                                <a href="<?= base_url('livros/editar/' . $livro->id) ?>">Editar</a>
+                                <a href="<?= base_url('livros/editar/' . $livro->id) ?>"class="btn btn-info">Editar</a>
 
-                                <a href="<?= base_url('livros/deletar/' . $livro->id) ?>">Deletar</a>
+                                <a href="<?= base_url('livros/deletar/' . $livro->id) ?>"class="btn btn-info">Deletar</a>
 
 
                             </td>

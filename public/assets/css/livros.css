@@ -1,12 +1,16 @@
 /* Estilo para o corpo da página */
 body {
-    background-color: #FFC0CB; /* Rosa mais claro */
+    background-color: #fac3cc; /* Rosa mais claro */
     color: #333; /* Cor do texto principal */
     font-family: 'Arial', sans-serif; /* Fonte principal */
     margin: 0;
     padding: 0;
 }
 
+h1 {
+    color: #333;
+    text-align: center;
+  } 
 /* Estilo para o contêiner da tabela */
 .container {
     width: 80%;

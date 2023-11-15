@@ -23,9 +23,8 @@ class LivrosService{
 
         $livros = new Livros($dados);
     
-        if($this->livrosModel->insert($livros)){
-            session()->setFlashdata('success', 'Livro criado com sucesso');
-            return redirect()->to('/');
+        if($id = $this->livrosModel->insertLivro($livros)){
+            return $id;
         }else{
             return redirect()->back()->withInput()->with('errors', $this->livrosModel->errors()); 
         }
@@ -33,16 +32,22 @@ class LivrosService{
     }
 
     public function updateLivros($id, $dados){
-
-        $livros = new Livros($dados);
-    
-        if($this->livrosModel->update($id, $livros)){
+       
+        $livros = $this->livrosModel->find($id);
+       
+        $livros->fill($dados);
+        if($livros->hasChanged()){
+            if($this->livrosModel->updateLivros($livros)){
+                session()->setFlashdata('success', 'Livro atualizado com sucesso');
+                return redirect()->to('/');
+            }else{
+                return redirect()->back()->withInput()->with('errors', $this->livrosModel->errors()); 
+            }
+        
+        }else{
             session()->setFlashdata('success', 'Livro atualizado com sucesso');
             return redirect()->to('/');
-        }else{
-            return redirect()->back()->withInput()->with('errors', $this->livrosModel->errors()); 
         }
-
     }
 
 

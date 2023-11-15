@@ -21,9 +21,8 @@ if (session()->has('message')) {
 
 <body>
   <?= validation_list_errors() ?>
-  <form method="post" action="<?php route_to('livros/editar/' . $livro->id); ?>">
+  <form method="post" action="<?php route_to('livros/editar/' . $livro->id); ?>"  enctype='multipart/form-data'>
 
-    <input type="hidden" name="id" value="<?php echo $livro->id; ?>">
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" value="<?php echo $livro->nome; ?>" required>
 
@@ -48,16 +47,19 @@ if (session()->has('message')) {
     <label for="ano">Ano:</label>
     <input type="text" id="ano" name="ano" value="<?php echo $livro->ano; ?>" required>
 
-    <label for="id_tipo_do_livro" required>Tipo da mídia:</label>
-    <select class="form-select" name="id_tipo_do_livro" id="id_tipo_do_livro">
+    <label for="id_tipo_livro" required>Tipo da mídia:</label>
+    <select class="form-select" name="id_tipo_livro" id="id_tipo_livro">
       <option value="1">Online</option>
       <option value="2">Físico</option>
     </select>
 
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-      <label for="arquivo">Selecione uma imagem:</label>
-      <input type="file" id="imagem" value="<?php echo $livro->imagem;  ?>" required>
-    </form>
 
+    <label for="arquivo">Selecione uma imagem:</label>
+    <input type="file" name="imagem" id="imagem" src="<?php echo base_url('assets/imgs'). '/'. $livro->imagem; ?>">
+
+
+  
     <input type="submit" value="Editar">
+
+   
   </form>

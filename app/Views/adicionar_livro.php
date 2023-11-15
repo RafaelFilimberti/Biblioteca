@@ -23,7 +23,7 @@ if (session()->has('message')) {
 <body>
 
 
-  <form action="<?= route_to('livros/add') ?>" method="POST" enctype='multipart/form-data'> <!-- o action está pegando todo o formulario e enviando via POST para o insert_livro -->
+  <form action="<?= base_url('livros/adicionar') ?>" method="POST" enctype='multipart/form-data'> <!-- o action está pegando todo o formulario e enviando via POST para o insert_livro -->
 
 
     <label for="nome">Nome:</label>
@@ -63,9 +63,14 @@ if (session()->has('message')) {
       <option value="2">Físico</option>
     </select>
 
+    
+ 
+      <label for="imagem">Escolha uma imagem:</label>
+      <input type="file" name="imagem" id="imagem" />
 
-    <label  for="imagem">Carregar imagem:</label>
-    <input  type="file" id="imagem" name="imagem">
+    
+   <!--  <label  for="imagem">Carregar imagem:</label>
+    <input  type="file" id="imagem" name="imagem"> -->
 
     <input class="btn btn-success" type="submit" value="Cadastrar">
   </form>
