@@ -21,6 +21,9 @@ if (session()->has('message')) {
 
 <body>
     <h1>Lista de Livros</h1>
+
+    <a href="<?= base_url('/livros/adicionar/'); ?>" class="adicionar">Adicionar Livros</a>
+
     <table>
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -44,13 +47,16 @@ if (session()->has('message')) {
                             <td><?= $livro->sinopse; ?></td>
                             <td><?= $livro->categoria; ?></td>
                             <td><?= $livro->ano; ?></td>
-                            <td><?= $livro->imagem; ?></td>
+                            <td><img src="<?php echo base_url('assets/imgs'). '/'. $livro->imagem; ?>" alt="<?php echo $livro->nome; ?>"></td>
+                            
                             <td>
                                 <?php if ($livro->disponivel) : ?>
-                                    <a href="<?= base_url('/reservas/reservarLivro/' . $livro->id); ?>" class="btn btn-success">Reservar</a>
+                                    <a href="<?php echo base_url('assets/imgs'). '/'. $livro->imagem; ?>" class="btn btn-success">Reservar</a>
                                 <?php else : ?>
                                     <span class="badge badge-danger">Indisponível</span>
                                 <?php endif; ?>
+
+                                
 
                                 <!-- Adicione o botão de redirecionamento para a página de reserva -->
                                 <a href="<?= base_url('/reservas/view/' . $livro->id); ?>" class="btn btn-info">Reservar</a>
@@ -58,7 +64,6 @@ if (session()->has('message')) {
                                 <a href="<?= base_url('livros/editar/' . $livro->id) ?>"class="btn btn-info">Editar</a>
 
                                 <a href="<?= base_url('livros/deletar/' . $livro->id) ?>"class="btn btn-info">Deletar</a>
-
 
                             </td>
                         </tr>

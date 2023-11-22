@@ -11,6 +11,9 @@ h1 {
     color: #333;
     text-align: center;
   } 
+
+
+
 /* Estilo para o contêiner da tabela */
 .container {
     width: 80%;
@@ -58,6 +61,26 @@ th, td {
     transition: background-color 0.3s;
 }
 
+.adicionar{
+    display: inline-block;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #c21d70; /* Rosa mais escuro para os botões */
+    color: white;
+    border: 1px solid #FF69B4; /* Rosa mais escuro */
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+a {
+    margin-right: 10px;
+    color: #FF69B4; /* Rosa mais escuro para links */
+    text-decoration: none;
+}
+
+
 /* Estilo para o botão "Indisponível" */
 /* .badge-danger { */
     background-color: #FF0000; /* Vermelho */
@@ -67,7 +90,7 @@ th, td {
 /* } */
 
 /* Estilo para links de ação */
-a {
+td a {
     margin-right: 10px;
     color: #FF69B4; /* Rosa mais escuro para links */
     text-decoration: none;
@@ -82,7 +105,7 @@ a:hover {
     overflow-x: auto;
 }
 
-/* Estilo para a imagem do livro (ajuste conforme necessário) */
+
 td img {
     max-width: 100px;
     height: auto;

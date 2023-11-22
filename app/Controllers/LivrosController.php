@@ -5,12 +5,17 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\LivrosModel;
 use App\Services\LivrosService;
+use CodeIgniter\Controller;
+use CodeIgniter\CodeIgniter\Loader\MyLoader;
+
+
 
 use function PHPUnit\Framework\isNull;
 
 class LivrosController extends BaseController
 {
 
+    protected $ci;
     protected $_model;
     protected $_livrosService;
 
@@ -18,6 +23,7 @@ class LivrosController extends BaseController
     {
         $this->_model = new LivrosModel();
         $this->_livrosService = new LivrosService();
+        
     }
 
 
@@ -67,16 +73,15 @@ class LivrosController extends BaseController
             if ($this->validate($validationRules)) {
 
                 $livroData = $this->request->getPost();
-              
+
                 if ($this->_livrosService->updateLivros($id, $livroData)) {
 
-                    if($this->request->getFile('imagem')) {
+                    if ($this->request->getFile('imagem')) {
                         $this->upload_image($this->request->getFile('imagem'), $id);
-                    }else{
+                    } else {
                         session()->setFlashdata('message', 'Livro atualizado com sucesso');
-                    return redirect()->to('/livros');
+                        return redirect()->to('/livros');
                     }
-                    
                 } else {
 
                     session()->setFlashdata('message', 'Erro ao tentar atualizar o livro');
@@ -107,20 +112,75 @@ class LivrosController extends BaseController
         }
     }
 
+
+
+
+
+
     private function upload_image($image, $postId)
     {
         $destinationDirectory = 'assets/imgs/';
-      
+
         $filename = uniqid() . '_' . preg_replace('/\s+/', '', $image->getName());
 
         if ($image->move($destinationDirectory, $filename)) {
-            if($this->_livrosService->updateLivros( $postId, ['imagem' => $filename])){
+            if ($this->_livrosService->updateLivros($postId, ['imagem' => $filename])) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
-        }else{
+        } else {
             return false;
         }
     }
+
+
+   /*  public function mostrarImagem($postId)
+    {
+        // Suponha que você tenha um model ou serviço chamado '_livrosService'
+        $livro = $this->_livrosService->obterLivroPorId($postId);
+
+        // Verifica se o livro e a imagem existem
+        if ($livro && $livro['imagem']) {
+            $data['imagem_url'] = base_url('assets/imgs/' . $livro['imagem']);
+            $this->load->view('listar_livro', $data);
+        } else {
+            // Lógica para lidar com o caso em que a imagem não foi encontrada
+            echo "Imagem não encontrada.";
+        }
+    } */
+
+    public function mostrarImagem()
+    {
+        if ($this->request->getPost()) {
+            $data = $this->request->getPost();
+            $imagem = $this->request->getFile('imagem');
+
+            // Validação de imagem e salvamento
+            if ($imagem->isValid() && !$imagem->hasMoved()) {
+                $caminho = FCPATH . 'assets/imgs';
+
+                if (!is_dir($caminho)) {
+                    mkdir($caminho, 0777, true);
+                }
+
+                $nomeImagem = time() . '_' . $imagem->getName();
+                $imagem->move($caminho, $nomeImagem);
+
+                $data['imagem'] = $nomeImagem;
+
+                // Agora, você também precisa incluir a categoria_id selecionada no $data.
+                $data['categoria_id'] = $this->request->getPost('categoria_id');
+
+                // Chame createProduct com ambos os argumentos
+                $this->_livrosService->createLivros($data, $nomeImagem);
+            } else {
+                // Lida com erros de imagem aqui, se necessário.
+            }
+        }
+
+        return redirect()->to('/livros/adicionar');
+    }
+
+
 }

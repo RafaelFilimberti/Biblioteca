@@ -49,7 +49,7 @@ class LivrosModel extends Model
         
         return  $this->save($livro);
     }
-}
+
 
 
 /* 
@@ -57,3 +57,8 @@ public function isLivroDisponivel($livroId){
     $livro = $this->find($livroId);
     return ($livro && $livro['disponivel'] == 1);
 } */
+
+
+
+
+}
