@@ -14,7 +14,7 @@ class LivrosModel extends Model
     protected $returnType       = Livros::class;
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nome', 'autor','num_paginas', 'editora', 'edicao', 'sinopse' ,'categoria', 'ano', 'imagem']; //campos que altera no bvanco 
+    protected $allowedFields    = ['nome', 'autor','id_tipo_livro','num_paginas', 'editora', 'edicao', 'sinopse' ,'categoria', 'ano', 'imagem']; //campos que altera no bvanco 
 
     // Dates
     protected $useTimestamps = false;
@@ -39,10 +39,26 @@ class LivrosModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-}
+
+    public function insertLivro($livro){
+      
+        $this->insert($livro);
+        return $this->getInsertID();
+    }
+    public function updateLivros($livro){
+        
+        return  $this->save($livro);
+    }
+
+
 
 /* 
 public function isLivroDisponivel($livroId){
     $livro = $this->find($livroId);
     return ($livro && $livro['disponivel'] == 1);
 } */
+
+
+
+
+}

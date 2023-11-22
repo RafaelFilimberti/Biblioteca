@@ -1,0 +1,62 @@
+body {
+    background-image: url("../imgs/editar.jpg");
+    background-color: #FFC0CB; /* Rosa mais claro */
+    background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+/* h1 {
+    color: #fff;
+    text-align: center;
+  } */
+
+form {
+    width: 60%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    color: #e93991;
+    display: block;
+    margin-top: 10px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #FF69B4; /* Rosa mais escuro para o botão */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #FF1493; /* Rosa mais escuro hover */
+}
+
+/* Estilo para o formulário de upload de imagem */
+form[action="upload.php"] {
+    margin-top: 20px;
+}
+
+/* Adicione mais estilos conforme necessário para o formulário de upload de imagem */
+
