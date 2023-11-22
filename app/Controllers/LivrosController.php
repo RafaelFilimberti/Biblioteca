@@ -78,10 +78,10 @@ class LivrosController extends BaseController
 
                     if ($this->request->getFile('imagem')) {
                         $this->upload_image($this->request->getFile('imagem'), $id);
-                    } else {
+                    } 
                         session()->setFlashdata('message', 'Livro atualizado com sucesso');
                         return redirect()->to('/livros');
-                    }
+                    
                 } else {
 
                     session()->setFlashdata('message', 'Erro ao tentar atualizar o livro');

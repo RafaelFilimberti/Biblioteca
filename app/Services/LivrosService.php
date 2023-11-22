@@ -31,6 +31,20 @@ class LivrosService{
 
     }
 
+
+    public function updateLivros($id, $dados){
+
+        $livros = new Livros($dados);
+    
+        if($this->livrosModel->update($id, $livros)){
+            session()->setFlashdata('success', 'Livro atualizado com sucesso');
+            return redirect()->to('/');
+        }else{
+            return redirect()->back()->withInput()->with('errors', $this->livrosModel->errors()); 
+        }
+
+    }
+
 /* 
     public function obterLivroPorId($postId) {
         // Lógica para consultar o banco de dados e obter informações do livro
