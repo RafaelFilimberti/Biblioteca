@@ -1,0 +1,42 @@
+body {
+    background-image: url("../imgs/logo.jpg");
+    background-size: contain;
+    background-position: center;
+    font-family: "Arial", sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #db91a0; /* Cor de fundo da metade direita */
+    color: #000; /* Cor do texto na metade direita */
+    transition: background-color 0.5s; /* Transição de cor suave */
+    position: static;
+  }
+  
+  .left-half {
+    background-color: #6b4950; /* Cor de fundo da metade esquerda */
+    color: #fff; /* Cor do texto na metade esquerda */
+    position: relative;
+  }
+  
+  .right-half {
+    background-color: rgb(177, 68, 91); /* Cor de fundo da metade direita */
+    color: #000; /* Cor do texto na metade direita */
+    position: sticky;
+  }
+  
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 182, 193, 0.6); /* Ajuste a transparência aqui */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .logo {
+    max-width: 50%; /* Ajuste a largura máxima conforme necessário */
+    height: auto;
+    display: flex;
+    margin: auto;
+  }
+  

@@ -55,7 +55,8 @@ if (session()->has('message')) {
 
 
     <label for="arquivo">Selecione uma imagem:</label>
-    <input type="file" name="imagem" id="imagem" src="<?php echo base_url('assets/imgs'). '/'. $livro->imagem; ?>">
+    <input type="file" name="imagem" id="imagem">
+    <img src="<?php echo base_url('assets/imgs'). '/'. $livro->imagem; ?>" alt="<?php echo $livro->nome; ?>" width="100px">
 
 
   

@@ -13,6 +13,6 @@ $routes->match(['get', 'post'], 'registrar','UserController::criarUsuario');
 $routes->match(['get', 'post'], 'livros/adicionar', 'LivrosController::adicionar'); //controller dos livro que traz do public function
 $routes->match(['get', 'post'], 'livros/editar/(:num)', 'LivrosController::editar/$1'); //controller->metodo
 $routes->get('livros/deletar/(:num)', 'LivrosController::deletar/$1');
-$routes->match(['get', 'post'],'livros/reservas/(:num)', 'ReservasController::ReservarLivro/$1');
+$routes->match(['get', 'post'],'livros/reservas/(:num)', 'ReservasController::index/$1'); 
 /* 
 $routes->get('reservas/view/(:num)', 'ReservasController/view/$1'); */

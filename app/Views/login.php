@@ -9,7 +9,7 @@
 <html>
 
 <head>
-  <title>Lista de Livros</title>
+  <title></title>
   <meta charset="UTF-8">
   <meta name="keywords" content="HTML, CSS, JavaScript">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

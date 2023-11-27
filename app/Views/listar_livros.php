@@ -4,7 +4,7 @@ if (session()->has('message')) {
 }
 
 ?>
-<!DOCTYPE html> <!--  -->
+<!DOCTYPE html> 
 
 <html>
 
@@ -48,23 +48,11 @@ if (session()->has('message')) {
                             <td><?= $livro->categoria; ?></td>
                             <td><?= $livro->ano; ?></td>
                             <td><img src="<?php echo base_url('assets/imgs'). '/'. $livro->imagem; ?>" alt="<?php echo $livro->nome; ?>"></td>
-                            
                             <td>
-                                <?php if ($livro->disponivel) : ?>
-                                    <a href="<?php echo base_url('assets/imgs'). '/'. $livro->imagem; ?>" class="btn btn-success">Reservar</a>
-                                <?php else : ?>
-                                    <span class="badge badge-danger">Indisponível</span>
-                                <?php endif; ?>
-
-                                
-
-                                <!-- Adicione o botão de redirecionamento para a página de reserva -->
-                                <a href="<?= base_url('/reservas/view/' . $livro->id); ?>" class="btn btn-info">Reservar</a>
-
-                                <a href="<?= base_url('livros/editar/' . $livro->id) ?>"class="btn btn-info">Editar</a>
-
-                                <a href="<?= base_url('livros/deletar/' . $livro->id) ?>"class="btn btn-info">Deletar</a>
-
+                            
+                                    <a href="<?= base_url('/livros/reservas/' . $livro->id); ?>" class="btn btn-success">Reservar</a>
+                                <a href="<?= base_url('livros/editar/'.$livro->id) ?>" class="btn btn-success">Editar</a>
+                                 <a href="<?= base_url('livros/deletar/'.$livro->id) ?>" class="btn btn-success">Deletar</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

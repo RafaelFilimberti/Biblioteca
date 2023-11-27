@@ -1,5 +1,5 @@
 body {
-    background-image: url("../imgs/adicionar.jpg");
+    background-image: url("../imgs/login.jpg");
     background-color: #FFC0CB; /* Rosa mais claro */
     background-size: cover;
   background-position: center;
@@ -13,14 +13,14 @@ body {
     text-align: center;
   } */
 
-form {
-    width: 60%;
-    margin: 20px auto;
-    background-color: white;
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(240, 173, 183, 0.6); /* Ajuste a transparência aqui */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
 
 label {
     color: #e93991;

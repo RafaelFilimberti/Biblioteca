@@ -6,6 +6,7 @@ body {
   background-attachment: fixed;
     margin: 0;
     padding: 0;
+    color: #000
 }
 
 /* h1 {
@@ -13,14 +14,16 @@ body {
     text-align: center;
   } */
 
-form {
-    width: 60%;
-    margin: 20px auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
+    form {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color:  rgb(177, 68, 91); /* Ajuste a transparência aqui */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
 
 label {
     color: #e93991;
